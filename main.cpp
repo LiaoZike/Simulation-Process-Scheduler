@@ -1,4 +1,4 @@
-﻿/****************************************************************/
+/****************************************************************/
 /*                 作業系統  模擬行程排程器     　        　    */
 /* 50915112 廖子科 Zi-Ke,Liao -2024/04/20  ©All RIGHTS RESERVED.*/
 /*                                                              */
@@ -32,10 +32,10 @@ int ready_list_size = 3; //就緒list空間限制為3
 int blocked_list_size = 3; //懸置list空間限制為3
 int running_time_limit = 10;  //每個程序最多跑10秒 超過等待下一次先給別的程序跑
 int ceated_time_range = 2; //建立等待時間1~2
-int running_need_time_range = 15; //其他載入等待時間1~15
+int running_need_time_range = 10; //其他載入等待時間1~10
 int other_need_time_range = 3; //其他載入等待時間1~3
 int waitIO_Probability = 30; //等待IO機率
-int runmode = 2; //執行模式 1:自動跑 , 2:自動跑(每一周期停1*Delay_speed秒) , 3:每周期都會暫停
+int runmode = 3; //執行模式 1:自動跑 , 2:自動跑(每一周期停1*Delay_speed秒) , 3:每周期都會暫停
 /*********************************/
 
 struct proces_item;
@@ -117,7 +117,7 @@ int maxID = 0; //輔助變數:存放程序ID(不重複)
 
 int main() {
     srand(time(0));
-    //srand(499999);
+    //srand(50915112);
     //ios::sync_with_stdio(0), cin.tie(0);
     system("clear");
     int RM_nextToRunning = -1; //刪除就緒->執行的位置
@@ -267,7 +267,7 @@ int main() {
         }
 
         OPlog += " ----------------------------------------\n";
-        system("clear");
+        system("cls");
         cout << "路徑log:\n";
         for (auto& item : process_route) cout << "程序ID" << item.first << ":  " << item.second << "\n\n";
         cout << "\n\n移動操作log:\n";
